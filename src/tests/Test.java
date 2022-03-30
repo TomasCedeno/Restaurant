@@ -30,7 +30,7 @@ public class Test {
         
         
         //Se inicializa una orden y se le agregan items
-        OrderModel order = new OrderModel(1, 12345678, "Cliente Prueba");
+        OrderModel order = new OrderModel(1, "12345678", "Cliente Prueba");
         order.addItem(item1);
         order.addItem(item2);
 

@@ -39,4 +39,9 @@ public class FoodModel implements Serializable{
         return price;
     }
     
+    
+    public String[] toArray(){
+        String[] data = {name, String.valueOf(price)};
+        return data;
+    }
 }

@@ -2,6 +2,7 @@ package views;
 
 import java.awt.*;
 import javax.swing.*;
+import controllers.MainClickEvent;
 
 /**
  *
@@ -24,9 +25,9 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        mainPanel = new javax.swing.JPanel();
         adminPanel = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        lblAdminIcon = new javax.swing.JLabel();
         lblAdmin = new javax.swing.JLabel();
         btnAdminLogin = new javax.swing.JPanel();
         lblAdminLogin = new javax.swing.JLabel();
@@ -34,11 +35,11 @@ public class MainWindow extends javax.swing.JFrame {
         lblAdminPassword = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         customerPanel = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        lblCustomerIcon = new javax.swing.JLabel();
         lblCustomer = new javax.swing.JLabel();
         btnMakeOrder = new javax.swing.JPanel();
         lblMakeOrder = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lblExit = new javax.swing.JLabel();
         txtCustomerName = new javax.swing.JTextField();
         txtCustomerId = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
@@ -54,7 +55,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         adminPanel.setBackground(new java.awt.Color(241, 211, 142));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin_icon.png"))); // NOI18N
+        lblAdminIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin_icon.png"))); // NOI18N
 
         lblAdmin.setFont(new java.awt.Font("Segoe UI Black", 1, 48)); // NOI18N
         lblAdmin.setForeground(new java.awt.Color(46, 61, 79));
@@ -110,7 +111,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(btnAdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(adminPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblAdminIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(adminPanelLayout.createSequentialGroup()
@@ -131,7 +132,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(adminPanelLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addComponent(jLabel3)
+                        .addComponent(lblAdminIcon)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminPanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -147,7 +148,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         customerPanel.setBackground(new java.awt.Color(238, 235, 193));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/customer_icon.png"))); // NOI18N
+        lblCustomerIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/customer_icon.png"))); // NOI18N
 
         lblCustomer.setFont(new java.awt.Font("Segoe UI Black", 1, 48)); // NOI18N
         lblCustomer.setForeground(new java.awt.Color(46, 61, 79));
@@ -156,6 +157,7 @@ public class MainWindow extends javax.swing.JFrame {
         btnMakeOrder.setBackground(new java.awt.Color(238, 235, 193));
         btnMakeOrder.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 60, 44), 3));
         btnMakeOrder.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMakeOrder.addMouseListener(new MainClickEvent(this));
 
         lblMakeOrder.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         lblMakeOrder.setForeground(new java.awt.Color(220, 60, 44));
@@ -176,13 +178,13 @@ public class MainWindow extends javax.swing.JFrame {
             .addComponent(lblMakeOrder, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
         );
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(220, 60, 44));
-        jLabel7.setText("X");
-        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblExit.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblExit.setForeground(new java.awt.Color(220, 60, 44));
+        lblExit.setText("X");
+        lblExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblExit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel7MouseClicked(evt);
+                lblExitMouseClicked(evt);
             }
         });
 
@@ -211,11 +213,11 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        lblCustomerName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCustomerName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblCustomerName.setForeground(new java.awt.Color(46, 61, 79));
         lblCustomerName.setText("Nombre");
 
-        lblCustomerId.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCustomerId.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblCustomerId.setForeground(new java.awt.Color(46, 61, 79));
         lblCustomerId.setText("No. de Identificación");
 
@@ -225,7 +227,7 @@ public class MainWindow extends javax.swing.JFrame {
             customerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(customerPanelLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jLabel4)
+                .addComponent(lblCustomerIcon)
                 .addGap(53, 53, 53)
                 .addComponent(txtCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(77, Short.MAX_VALUE))
@@ -235,7 +237,7 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, customerPanelLayout.createSequentialGroup()
                         .addComponent(lblCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(78, 78, 78)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblExit, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, customerPanelLayout.createSequentialGroup()
                         .addGroup(customerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,12 +258,12 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(customerPanelLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(lblCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel7))
+                    .addComponent(lblExit))
                 .addGap(33, 33, 33)
                 .addGroup(customerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(customerPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblCustomerIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE))
                     .addGroup(customerPanelLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(lblCustomerId)
@@ -269,9 +271,9 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(txtCustomerId, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblCustomerName)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -280,17 +282,17 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(41, 41, 41))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+        mainPanel.setLayout(mainPanelLayout);
+        mainPanelLayout.setHorizontalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
                 .addComponent(adminPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(customerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        mainPanelLayout.setVerticalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(adminPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(customerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -299,20 +301,20 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+    private void lblExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExitMouseClicked
         System.exit(DO_NOTHING_ON_CLOSE);
-    }//GEN-LAST:event_jLabel7MouseClicked
+    }//GEN-LAST:event_lblExitMouseClicked
 
     private void txtCustomerIdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCustomerIdFocusGained
         txtCustomerId.setText("");
@@ -332,6 +334,19 @@ public class MainWindow extends javax.swing.JFrame {
             evt.consume();
     }//GEN-LAST:event_txtCustomerIdKeyTyped
 
+    public JPanel getBtnMakeOrder() {
+        return btnMakeOrder;
+    }
+
+    public JTextField getTxtCustomerId() {
+        return txtCustomerId;
+    }
+
+    public JTextField getTxtCustomerName() {
+        return txtCustomerName;
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -372,20 +387,20 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel btnAdminLogin;
     private javax.swing.JPanel btnMakeOrder;
     private javax.swing.JPanel customerPanel;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JLabel lblAdmin;
+    private javax.swing.JLabel lblAdminIcon;
     private javax.swing.JLabel lblAdminLogin;
     private javax.swing.JLabel lblAdminPassword;
     private javax.swing.JLabel lblCustomer;
+    private javax.swing.JLabel lblCustomerIcon;
     private javax.swing.JLabel lblCustomerId;
     private javax.swing.JLabel lblCustomerName;
+    private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblMakeOrder;
+    private javax.swing.JPanel mainPanel;
     private javax.swing.JPasswordField txtAdminPassword;
     private javax.swing.JTextField txtCustomerId;
     private javax.swing.JTextField txtCustomerName;

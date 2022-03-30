@@ -38,4 +38,9 @@ public class MenuModel implements Serializable{
         items.add(item);
     }
     
+    @Override
+    public String toString(){
+        return this.name;
+    }
+    
 }

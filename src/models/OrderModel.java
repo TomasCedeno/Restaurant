@@ -10,12 +10,12 @@ import java.util.ArrayList;
 public class OrderModel implements Serializable{
     
     private int id;
-    private int customerId;
+    private String customerId;
     private String customerName;
     private ArrayList<FoodModel> items = new ArrayList();
     private double totalPrice = 0;
 
-    public OrderModel(int id, int customerId, String customerName) {
+    public OrderModel(int id, String customerId, String customerName) {
         this.id = id;
         this.customerId = customerId;
         this.customerName = customerName;
@@ -31,7 +31,7 @@ public class OrderModel implements Serializable{
     /**
      * @return la identificacion del cliente
      */
-    public int getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 

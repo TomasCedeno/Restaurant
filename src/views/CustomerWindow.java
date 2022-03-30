@@ -22,6 +22,7 @@ public class CustomerWindow extends javax.swing.JFrame {
     public CustomerWindow(OrderModel order) {    
         this.order = order;
         initComponents();
+        finishOrderPanel.setVisible(false);
         
         lblValueCustomerId.setText(order.getCustomerId());
         lblValueCustomerName.setText(order.getCustomerName());

@@ -69,4 +69,11 @@ public class OrderModel implements Serializable{
         items.add(item);
     }
     
+    /**
+     * @return una representación en array de la orden
+     */
+    public String[] toArray(){
+        String data[] = {String.valueOf(id), customerId, customerName, String.valueOf(getTotalPrice())};
+        return data;
+    }
 }

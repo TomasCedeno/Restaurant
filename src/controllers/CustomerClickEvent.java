@@ -2,9 +2,10 @@ package controllers;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import models.OrderModel;
+import access.OrderDAO;
+import javax.swing.JOptionPane;
 import views.CustomerWindow;
-import views.CustomerWindow;
+import views.MainWindow;
 
 /**
  *
@@ -19,8 +20,14 @@ public class CustomerClickEvent extends MouseAdapter{
     
     @Override
     public void mouseClicked(MouseEvent event) {
-        if(event.getSource() == customerWindow.getBtnFinishOrder()) {
-            //TODO: Create finish order window wich allows to save the order in the DB
+        if(event.getSource() == customerWindow.getBtnSaveOrder()) {
+            OrderDAO orderDAO = new OrderDAO();
+            orderDAO.createOrder(customerWindow.getOrder());
+            
+            JOptionPane.showMessageDialog(null, "La orden ha sido creada exitosamente.");
+            customerWindow.dispose();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.setVisible(true);
         }
     }
 }

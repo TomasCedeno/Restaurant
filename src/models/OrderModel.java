@@ -54,6 +54,7 @@ public class OrderModel implements Serializable{
      * @return el precio total de la orden
      */
     public double getTotalPrice() {
+        totalPrice = 0;
         items.forEach((item) -> {
             totalPrice += item.getPrice();
         });

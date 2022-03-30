@@ -22,7 +22,9 @@ public class MainClickEvent extends MouseAdapter{
     public void mouseClicked(MouseEvent event) {
         if(event.getSource() == mainWindow.getBtnMakeOrder()) {
             
-            OrderModel order = new OrderModel(0, mainWindow.getTxtCustomerId().getText(),
+            int orderId = new InitialData().getOrders().size() + 1;
+            
+            OrderModel order = new OrderModel(orderId, mainWindow.getTxtCustomerId().getText(),
                     mainWindow.getTxtCustomerName().getText());
             
             mainWindow.dispose();

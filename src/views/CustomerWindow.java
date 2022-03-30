@@ -561,11 +561,16 @@ public class CustomerWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_tblMenuMouseClicked
 
     private void btnAddOrderItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddOrderItemMouseClicked
-        int selectedRow = tblMenu.getSelectedRow();
-        FoodModel item = initialData.getMenus().get(cbxMenusList.getSelectedIndex()).getItems().get(selectedRow);
-        
-        order.addItem(item);
-        JOptionPane.showMessageDialog(null, "Se agregó " + item.getName() + " exitosamente a la orden.");
+        if (tblMenu.getSelectedRow() == -1){
+            JOptionPane.showMessageDialog(null, "Seleccione un elemento de la tabla para poder agregarlo.");
+            
+        } else {
+            int selectedRow = tblMenu.getSelectedRow();
+            FoodModel item = initialData.getMenus().get(cbxMenusList.getSelectedIndex()).getItems().get(selectedRow);
+
+            order.addItem(item);
+            JOptionPane.showMessageDialog(null, "Se agregó " + item.getName() + " exitosamente a la orden.");
+        }
     }//GEN-LAST:event_btnAddOrderItemMouseClicked
 
     private void btnAddMoreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMoreMouseClicked

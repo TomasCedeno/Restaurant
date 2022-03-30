@@ -22,7 +22,7 @@ public class StaffClickEvent extends MouseAdapter{
     
     @Override
     public void mouseClicked(MouseEvent event) {
-        if(event.getSource() == staffWindow.getBtnCreateMenu()) {
+        if(event.getSource() == staffWindow.getBtnCreateMenu() && !staffWindow.getTxtMenuName().getText().isEmpty()) {
             MenuDAO menuDAO = new MenuDAO();
             MenuModel menu = new MenuModel(staffWindow.getTxtMenuName().getText());
             menuDAO.createMenu(menu);
@@ -30,7 +30,12 @@ public class StaffClickEvent extends MouseAdapter{
             JOptionPane.showMessageDialog(null, "El menú ha sido creado exitosamente.");
             staffWindow.getTxtMenuName().setText("");
             
-        } else if (event.getSource() == staffWindow.getBtnAddMenuItem()){
+        } else if (event.getSource() == staffWindow.getBtnAddMenuItem() 
+            && staffWindow.getCbxMenus().getSelectedIndex() != -1
+            && !staffWindow.getTxtItemName().getText().isEmpty()
+            && !staffWindow.getTxtItemDescription().getText().isEmpty()
+            && !staffWindow.getTxtItemPrice().getText().isEmpty() ){
+            
             FoodModel item = new FoodModel(staffWindow.getTxtItemName().getText(), 
                     staffWindow.getTxtItemDescription().getText(),
                     Double.valueOf(staffWindow.getTxtItemPrice().getText()) );
@@ -44,6 +49,9 @@ public class StaffClickEvent extends MouseAdapter{
             staffWindow.getTxtItemName().setText("");
             staffWindow.getTxtItemDescription().setText("");
             staffWindow.getTxtItemPrice().setText("");
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Error: Hay campos sin llenar.");
         }
     }
     

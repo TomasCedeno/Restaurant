@@ -27,12 +27,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         mainPanel = new javax.swing.JPanel();
         adminPanel = new javax.swing.JPanel();
-        lblAdminIcon = new javax.swing.JLabel();
+        lblStaffIcon = new javax.swing.JLabel();
         lblAdmin = new javax.swing.JLabel();
-        btnAdminLogin = new javax.swing.JPanel();
-        lblAdminLogin = new javax.swing.JLabel();
-        txtAdminPassword = new javax.swing.JPasswordField();
-        lblAdminPassword = new javax.swing.JLabel();
+        btnStaffLogin = new javax.swing.JPanel();
+        lblStaffLogin = new javax.swing.JLabel();
+        txtStaffPassword = new javax.swing.JPasswordField();
+        lblStaffPassword = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         customerPanel = new javax.swing.JPanel();
         lblCustomerIcon = new javax.swing.JLabel();
@@ -55,50 +55,51 @@ public class MainWindow extends javax.swing.JFrame {
 
         adminPanel.setBackground(new java.awt.Color(241, 211, 142));
 
-        lblAdminIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin_icon.png"))); // NOI18N
+        lblStaffIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/admin_icon.png"))); // NOI18N
 
         lblAdmin.setFont(new java.awt.Font("Segoe UI Black", 1, 48)); // NOI18N
         lblAdmin.setForeground(new java.awt.Color(46, 61, 79));
         lblAdmin.setText("Personal");
 
-        btnAdminLogin.setBackground(new java.awt.Color(241, 211, 142));
-        btnAdminLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 60, 44), 3));
-        btnAdminLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnStaffLogin.setBackground(new java.awt.Color(241, 211, 142));
+        btnStaffLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 60, 44), 3));
+        btnStaffLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnStaffLogin.addMouseListener(new MainClickEvent(this));
 
-        lblAdminLogin.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        lblAdminLogin.setForeground(new java.awt.Color(220, 60, 44));
-        lblAdminLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAdminLogin.setText("Ingresar");
+        lblStaffLogin.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        lblStaffLogin.setForeground(new java.awt.Color(220, 60, 44));
+        lblStaffLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblStaffLogin.setText("Ingresar");
 
-        javax.swing.GroupLayout btnAdminLoginLayout = new javax.swing.GroupLayout(btnAdminLogin);
-        btnAdminLogin.setLayout(btnAdminLoginLayout);
-        btnAdminLoginLayout.setHorizontalGroup(
-            btnAdminLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnAdminLoginLayout.createSequentialGroup()
+        javax.swing.GroupLayout btnStaffLoginLayout = new javax.swing.GroupLayout(btnStaffLogin);
+        btnStaffLogin.setLayout(btnStaffLoginLayout);
+        btnStaffLoginLayout.setHorizontalGroup(
+            btnStaffLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnStaffLoginLayout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addComponent(lblAdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblStaffLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(62, Short.MAX_VALUE))
         );
-        btnAdminLoginLayout.setVerticalGroup(
-            btnAdminLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblAdminLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+        btnStaffLoginLayout.setVerticalGroup(
+            btnStaffLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblStaffLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
         );
 
-        txtAdminPassword.setBackground(new java.awt.Color(241, 211, 142));
-        txtAdminPassword.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        txtAdminPassword.setForeground(new java.awt.Color(46, 61, 79));
-        txtAdminPassword.setText("jPasswordField1");
-        txtAdminPassword.setBorder(null);
-        txtAdminPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtStaffPassword.setBackground(new java.awt.Color(241, 211, 142));
+        txtStaffPassword.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtStaffPassword.setForeground(new java.awt.Color(46, 61, 79));
+        txtStaffPassword.setText("jPasswordField1");
+        txtStaffPassword.setBorder(null);
+        txtStaffPassword.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txtAdminPasswordFocusGained(evt);
+                txtStaffPasswordFocusGained(evt);
             }
         });
 
-        lblAdminPassword.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lblAdminPassword.setForeground(new java.awt.Color(46, 61, 79));
-        lblAdminPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAdminPassword.setText("<html>\nContraseña\n<br>\nde    Acceso\n");
+        lblStaffPassword.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblStaffPassword.setForeground(new java.awt.Color(46, 61, 79));
+        lblStaffPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblStaffPassword.setText("<html>\nContraseña\n<br>\nde    Acceso\n");
 
         javax.swing.GroupLayout adminPanelLayout = new javax.swing.GroupLayout(adminPanel);
         adminPanel.setLayout(adminPanelLayout);
@@ -108,17 +109,17 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(adminPanelLayout.createSequentialGroup()
                         .addGap(58, 58, 58)
-                        .addComponent(btnAdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnStaffLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(adminPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lblAdminIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblStaffIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(adminPanelLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(txtAdminPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtStaffPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAdminPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblStaffPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(adminPanelLayout.createSequentialGroup()
                         .addGap(124, 124, 124)
                         .addComponent(lblAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -132,17 +133,17 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(adminPanelLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addComponent(lblAdminIcon)
+                        .addComponent(lblStaffIcon)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminPanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblAdminPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblStaffPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAdminPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtStaffPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(115, 115, 115)))
-                .addComponent(btnAdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnStaffLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
         );
 
@@ -324,9 +325,9 @@ public class MainWindow extends javax.swing.JFrame {
         txtCustomerName.setText("");
     }//GEN-LAST:event_txtCustomerNameFocusGained
 
-    private void txtAdminPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAdminPasswordFocusGained
-        txtAdminPassword.setText("");
-    }//GEN-LAST:event_txtAdminPasswordFocusGained
+    private void txtStaffPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtStaffPasswordFocusGained
+        txtStaffPassword.setText("");
+    }//GEN-LAST:event_txtStaffPasswordFocusGained
 
     private void txtCustomerIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerIdKeyTyped
         char c = evt.getKeyChar();
@@ -344,6 +345,14 @@ public class MainWindow extends javax.swing.JFrame {
 
     public JTextField getTxtCustomerName() {
         return txtCustomerName;
+    }
+
+    public JPanel getBtnStaffLogin() {
+        return btnStaffLogin;
+    }
+
+    public JPasswordField getTxtStaffPassword() {
+        return txtStaffPassword;
     }
     
     
@@ -384,25 +393,25 @@ public class MainWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel adminPanel;
-    private javax.swing.JPanel btnAdminLogin;
     private javax.swing.JPanel btnMakeOrder;
+    private javax.swing.JPanel btnStaffLogin;
     private javax.swing.JPanel customerPanel;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JLabel lblAdmin;
-    private javax.swing.JLabel lblAdminIcon;
-    private javax.swing.JLabel lblAdminLogin;
-    private javax.swing.JLabel lblAdminPassword;
     private javax.swing.JLabel lblCustomer;
     private javax.swing.JLabel lblCustomerIcon;
     private javax.swing.JLabel lblCustomerId;
     private javax.swing.JLabel lblCustomerName;
     private javax.swing.JLabel lblExit;
     private javax.swing.JLabel lblMakeOrder;
+    private javax.swing.JLabel lblStaffIcon;
+    private javax.swing.JLabel lblStaffLogin;
+    private javax.swing.JLabel lblStaffPassword;
     private javax.swing.JPanel mainPanel;
-    private javax.swing.JPasswordField txtAdminPassword;
     private javax.swing.JTextField txtCustomerId;
     private javax.swing.JTextField txtCustomerName;
+    private javax.swing.JPasswordField txtStaffPassword;
     // End of variables declaration//GEN-END:variables
 }

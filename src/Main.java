@@ -1,4 +1,5 @@
 import tests.Test;
+import views.MainWindow;
 
 /**
  *
@@ -8,9 +9,10 @@ public class Main {
     
     public static void main(String[] args) {
         
-        //TODO: Call the main window
         //Test.test();
         
+        MainWindow mainWindow = new MainWindow();
+        mainWindow.setVisible(true);
     }
     
 }
